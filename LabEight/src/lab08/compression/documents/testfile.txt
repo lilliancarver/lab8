@@ -1,0 +1,8 @@
+the line after this one has no words at all
+
+this line has double  spaces  between  some  words
+and this one has triple   spaces   between   other words
+this line has one space at the end 
+this line has two spaces at the end  
+ this line has one space before any words
+  this line has two spaces before any words
