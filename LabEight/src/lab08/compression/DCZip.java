@@ -90,7 +90,7 @@ public class DCZip {
 	 * @param args none
 	 */
 	public static void main(String[] args) {
-		String path = "src/comp132/labs/lab08/compression/documents/";
+		String path = "src/lab08/compression/documents/";
 
 		Scanner scr = new Scanner(System.in);
 

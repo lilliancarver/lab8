@@ -17,7 +17,7 @@ import org.junit.Test;
 
 public class CompressTest {
 
-	private static final String FILE = "src/comp132/labs/lab08/compression/documents/";
+	private static final String FILE = "src/lab08/compression/documents/";
 	private static final String FILE_HBD = FILE + "hbd";
 	private static final String IN_FILE_HBD = FILE_HBD + ".txt";
 	private static final String COMPRESSED_HBD = IN_FILE_HBD + ".dczip";
