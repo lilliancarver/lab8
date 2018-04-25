@@ -14,6 +14,9 @@ package lab08.compression;
  */
 public class WordIntPair implements Comparable<WordIntPair> {
 
+	private int wordNum;
+	private String theWord;
+
 	/**
 	 * Construct a new word.
 	 * 
@@ -21,7 +24,8 @@ public class WordIntPair implements Comparable<WordIntPair> {
 	 *            the word.
 	 */
 	public WordIntPair(String word) {
-
+		theWord = word;
+		wordNum = 1;
 	}
 
 	/**
@@ -30,7 +34,7 @@ public class WordIntPair implements Comparable<WordIntPair> {
 	 * @return the word.
 	 */
 	public String getWord() {
-		return null;
+		return theWord;
 	}
 
 	/**
@@ -39,7 +43,7 @@ public class WordIntPair implements Comparable<WordIntPair> {
 	 * @return the int value associated with this word.
 	 */
 	public int getIntValue() {
-		return -1;
+		return wordNum;
 	}
 
 	/**
@@ -49,13 +53,13 @@ public class WordIntPair implements Comparable<WordIntPair> {
 	 *            the new value associated with this word.
 	 */
 	public void setValue(int newValue) {
-
+		wordNum = newValue;
 	}
 
 	/**
-	 * Compare this WordIntPairs to one another using their int values.
-	 * WordIntPairs having higher int values come before those with lower
-	 * values. WordIntPairs with equal values can appear in either order.
+	 * Compare this WordIntPairs to one another using their int values. WordIntPairs
+	 * having higher int values come before those with lower values. WordIntPairs
+	 * with equal values can appear in either order.
 	 * 
 	 * For more information see the Java JDK documentation for the Comparable
 	 * interface, which is implemented by this class.
@@ -63,10 +67,19 @@ public class WordIntPair implements Comparable<WordIntPair> {
 	 * @param w
 	 *            the WordIntPair to compare to this one.
 	 * @return a negative value if this word comes before w, a positive value if
-	 *         this word comes after w, zero if this word and w can appear in
-	 *         either order.
+	 *         this word comes after w, zero if this word and w can appear in either
+	 *         order.
 	 */
 	public int compareTo(WordIntPair w) {
-		return 0;
+		int thisWordNum = this.wordNum;
+		int paramWordNum = w.wordNum;
+		
+		if (thisWordNum > paramWordNum) {
+			return -1;
+		} else if (thisWordNum < paramWordNum) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 }

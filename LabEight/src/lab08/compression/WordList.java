@@ -17,10 +17,13 @@ import java.util.Collections;
  */
 public class WordList {
 
+	private ArrayList<WordIntPair> wordList;
+
 	/**
 	 * Construct a new empty WordList.
 	 */
 	public WordList() {
+		wordList = new ArrayList<WordIntPair>();
 	}
 
 	/**
@@ -29,32 +32,41 @@ public class WordList {
 	 * @return the number of words in the list.
 	 */
 	public int size() {
-		return -1;
+		return wordList.size();
 	}
 
 	/**
-	 * Add a word to the list. If the word does not exist, it should be added to
-	 * the list with a count of 1. If the word already exists in the list, then
-	 * the count for the existing word should be increased.
+	 * Add a word to the list. If the word does not exist, it should be added to the
+	 * list with a count of 1. If the word already exists in the list, then the
+	 * count for the existing word should be increased.
 	 * 
 	 * @param word
 	 *            the word to be added to the list.
 	 */
 	public void addWord(String word) {
+
+		try {
+			WordIntPair hold = wordList.get(getIndex(word));
+			hold.setValue(hold.getIntValue() + 1);
+		} catch (IllegalArgumentException e) {
+			WordIntPair newWord = new WordIntPair(word);
+			wordList.add(newWord);
+		}
 	}
 
 	/**
-	 * Sort list of words such that those with the largest frequency counts
-	 * appear at the start of the list.
+	 * Sort list of words such that those with the largest frequency counts appear
+	 * at the start of the list.
 	 */
 	public void sortByFrequency() {
+		Collections.sort(wordList);
 	}
 
 	/**
 	 * Get the index of the given word in the list. When done after the list is
-	 * sorted the index of more frequent words will have smaller indices (that
-	 * we will be able to represent by a byte). Less frequent words will have
-	 * larger indices (that may requires a short).
+	 * sorted the index of more frequent words will have smaller indices (that we
+	 * will be able to represent by a byte). Less frequent words will have larger
+	 * indices (that may requires a short).
 	 * 
 	 * @param word
 	 *            the word for which to find the index.
@@ -63,7 +75,16 @@ public class WordList {
 	 *             if word does not appear in the list.
 	 */
 	public int getIndex(String word) {
-		return -1;
+
+		for (int i = 0; i < wordList.size(); i++) {
+			WordIntPair hold = wordList.get(i);
+			if ((hold.getWord()).equals(word)) {
+				return i;
+			}
+		}
+
+		throw new IllegalArgumentException();
+
 	}
 
 	/**
@@ -74,6 +95,7 @@ public class WordList {
 	 * @return the word that appears at the specified index in the list.
 	 */
 	public String getWord(int index) {
-		return null;
+		WordIntPair found = wordList.get(index);
+		return found.getWord();
 	}
 }
